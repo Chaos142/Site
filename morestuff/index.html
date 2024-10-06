@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>extension crasher thingy</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn6.aptoide.com/imgs/0/c/f/0cff87049058af4e3d224f86abb8b7ed_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 style="text-align: center;">catchy title here</h1>
+    <div style="text-align: center;">
+        <input type="file" id="fileInput" />
+        <button id="copyButton">Copy to Clipboard</button>
+        <p id="message"></p>
+    </div>
+
+    <div id="instructions">
+        <h2 style="font-size: 24px;">Disable Chrome Extensions (v129)</h2>
+
+        <ol style="text-align: left; margin: 0 auto; width: 50%;">
+            <li>Go to chrome://extensions, enable developer mode, and click "details" under the extension you want to disable, then copy the ID</li>
+            <li>Download <a href="https://www.mediafire.com/file/nldhp3grxk5w5es/baka/file" target="_blank">this file</a></li>
+            <li>Upload the file to this web page</li>
+            <li>Click copy to clipboard</li>
+            <li>Click on the extension you want to disable. If it doesn't have a UI with a text input, this exploit will not work.</li>
+            <li>In a input/text field do control v and after a second do it again</li>
+            <li>Go to chrome-extension://&#60;ID&#62;/manifest.json. To disable the exploit, close this tab.</li>
+        </ol>
+    </div>
+
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        h1 {
+            font-weight: 500;
+            font-size: 150px;
+            margin: 20px 0;
+        }
+        
+        input[type="file"], button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #444653;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a {
+            color: white;
+        }
+
+        button:hover {
+            background-color: #8a9498;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px; 
+            background-color: #444653;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        #instructions {
+            margin-top: 20px;
+            font-size: 18px; 
+            background-color: #1e1e1e;
+            color: white;
+            font-family: 'Fredoka', sans-serif;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', async () => {
+                        const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const text = event.target.result;
+                    navigator.clipboard.writeText(text).then(() => {
+                        document.getElementById('message').textContent = 'Content copied to clipboard!';
+                    }).catch(err => {
+                        document.getElementById('message').textContent = 'Failed to copy: ' + err;
+                    });
+                };
+                reader.readAsText(file);
+            } else {
+                document.getElementById('message').textContent = 'Please select a file first.';
+            }
+        });
+    </script>
+</body>
+</html>
