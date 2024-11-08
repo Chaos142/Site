@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>spanish 3 textbook answer key fetcher</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">spanish workbook answer fetcher</h1>
+    <label class="subtitle"
+      >created by
+      <a href="https://github.com/chaos142" target="_blank">chaos</a> :: make
+      sure you're signed into the textbook :: dygi = do you get it</label
+    >
+
+    <div class="input-container">
+      <input
+        type="text"
+        id="unit_input"
+        placeholder="Enter Unit Number"
+        style="font-weight: bold; text-align: center"
+      />
+      <div class="button-container">
+        <button onclick="generate('unit_input', 2)">NORMAL ANSWERS</button>
+        <button onclick="generate('unit_input', 1)">DYGI ANSWERS</button>
+        <button onclick="generate('unit_input', 3)">
+          PRACTICE GAME ANSWERS
+        </button>
+        <button onclick="clearInput('unit_input', 'output')">CLEAR</button>
+      </div>
+    </div>
+    <a id="output" class="subtitle" target="_blank"></a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
